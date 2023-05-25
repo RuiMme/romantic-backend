@@ -8,6 +8,7 @@ public class RomanticBackendApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RomanticBackendApplication.class, args);
+        System.out.println("Build Success");
     }
 
 }

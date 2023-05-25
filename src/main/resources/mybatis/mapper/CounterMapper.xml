@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.romantic.romanticbackend.mapper.CounterMapper">
+    <resultMap id="CounterResult" type="com.romantic.romanticbackend.domain.Counter">
+        <result property="id" column="id"></result>
+        <result property="count" column="count"></result>
+    </resultMap>
+
+    <select id="getList" resultMap="CounterResult">
+        SELECT * FROM Counters
+    </select>
+</mapper>

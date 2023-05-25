@@ -1,0 +1,21 @@
+debug: true
+
+server:
+  port: 8023
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: utf-8
+    accept-count: 1000
+    threads:
+      max: 800
+      min-spare: 100
+
+logging:
+  level:
+    com.romantic: debug
+    org.springframework: warn
+
+spring:
+  profiles:
+    active: dev
