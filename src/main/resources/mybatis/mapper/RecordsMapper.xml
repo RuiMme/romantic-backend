@@ -11,7 +11,15 @@
     </resultMap>
 
     <select id="recordsList" resultMap="RecordsResult" parameterType="com.romantic.romanticbackend.domain.Records">
+        SELECT * FROM Records where deleted = 0 Order by date,time ASC
+    </select>
+
+    <select id="recordsListByDate" resultMap="RecordsResult" parameterType="com.romantic.romanticbackend.domain.Records">
         SELECT * FROM Records where date = #{date} and deleted = 0 Order by time ASC
+    </select>
+
+    <select id="recordsDateList" resultMap="RecordsResult" parameterType="com.romantic.romanticbackend.domain.Records">
+        select MIN(date) date from Records GROUP BY date
     </select>
 
     <insert id="recordsAdd" parameterType="com.romantic.romanticbackend.domain.Records">

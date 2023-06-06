@@ -16,9 +16,21 @@ public class RecordsController {
     private RecordsService recordsService;
 
     @GetMapping("/list")
-    public List<Records> recordsList(Records records) {
+    public List<Records> recordsList() {
 //        System.out.println(records.getDate());
-        return recordsService.recordsList(records);
+        return recordsService.recordsList();
+    }
+
+    @GetMapping(value = "/{date}")
+    public List<Records> recordsListByDate(@PathVariable("date") String date) {
+//        System.out.println(records.getDate());
+        return recordsService.recordsListByDate(date);
+    }
+
+    @GetMapping(value = "/date")
+    public List<Records> recordsListByDate() {
+//        System.out.println(records.getDate());
+        return recordsService.recordsDateList();
     }
 
     @PostMapping

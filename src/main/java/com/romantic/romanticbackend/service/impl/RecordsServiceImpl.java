@@ -16,8 +16,17 @@ public class RecordsServiceImpl implements RecordsService {
     private RecordsMapper recordsMapper;
 
     @Override
-    public List<Records> recordsList(Records records){
-        return recordsMapper.recordsList(records);
+    public List<Records> recordsList(){
+        return recordsMapper.recordsList();
+    }
+
+    @Override
+    public List<Records> recordsListByDate(String date){
+        return recordsMapper.recordsListByDate(date);
+    }
+
+    public List<Records> recordsDateList() {
+        return recordsMapper.recordsDateList();
     }
 
     @Override

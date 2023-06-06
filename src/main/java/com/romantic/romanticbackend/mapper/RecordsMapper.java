@@ -7,7 +7,11 @@ import java.util.List;
 
 @Mapper
 public interface RecordsMapper {
-    public List<Records> recordsList(Records records);
+    public List<Records> recordsList();
+
+    public List<Records> recordsListByDate(String date);
+
+    public List<Records> recordsDateList();
 
     public void recordsAdd(Records records);
 }
