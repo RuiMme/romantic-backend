@@ -14,4 +14,6 @@ public interface RecordsService {
 
     public void recordsAdd(Records records);
 
+    public void recordsDel(int id);
+
 }

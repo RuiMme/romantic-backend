@@ -25,6 +25,7 @@ public class RecordsServiceImpl implements RecordsService {
         return recordsMapper.recordsListByDate(date);
     }
 
+    @Override
     public List<Records> recordsDateList() {
         return recordsMapper.recordsDateList();
     }
@@ -35,5 +36,10 @@ public class RecordsServiceImpl implements RecordsService {
         records.setCreateAt(date);
         records.setDeleted(0);
         recordsMapper.recordsAdd(records);
+    }
+
+    @Override
+    public void recordsDel(int id){
+        recordsMapper.recordsDel(id);
     }
 }

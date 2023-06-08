@@ -2,6 +2,7 @@ package com.romantic.romanticbackend.controller;
 
 import com.romantic.romanticbackend.domain.Records;
 import com.romantic.romanticbackend.service.RecordsService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,4 +42,9 @@ public class RecordsController {
         return "insert success";
     }
 
+    @DeleteMapping("/{ids}")
+    public String recordsDel(@PathVariable int ids){
+        recordsService.recordsDel(ids);
+        return "success";
+    }
 }

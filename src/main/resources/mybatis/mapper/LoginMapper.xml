@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.romantic.romanticbackend.mapper.LoginMapper">
+    <resultMap id="LoginResult" type="com.romantic.romanticbackend.domain.Login">
+        <result property="id" column="id"></result>
+        <result property="bind_id" column="bind_id"></result>
+        <result property="username" column="username"></result>
+        <result property="nickname" column="nickname"></result>
+        <result property="mobile" column="mobile"></result>
+        <result property="wx_ma_openid" column="wx_ma_openid"></result>
+        <result property="createAt" column="createAt"></result>
+        <result property="updateAt" column="updateAt"></result>
+        <result property="deleteAt" column="deleteAt"></result>
+    </resultMap>
+
+    <select id="login" resultMap="LoginResult" parameterType="com.romantic.romanticbackend.domain.Login">
+        SELECT * FROM Users WHERE wx_ma_openid = #{wx_ma_openid}
+    </select>
+
+    <select id="loginMaxId" resultMap="LoginResult" parameterType="com.romantic.romanticbackend.domain.Login">
+        SELECT * FROM Users WHERE id = (SELECT MAX(id) FROM Users)
+    </select>
+
+    <insert id="loginAdd" parameterType="com.romantic.romanticbackend.domain.Login">
+        insert into Users (wx_ma_openid,username,nickname,createAt) values (#{wx_ma_openid},#{username},#{nickname},#{createAt})
+    </insert>
+
+    <select id="userInfo" resultMap="LoginResult" parameterType="com.romantic.romanticbackend.domain.Login">
+        SELECT * FROM Users WHERE id = #{id}
+    </select>
+</mapper>

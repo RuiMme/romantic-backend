@@ -19,10 +19,14 @@
     </select>
 
     <select id="recordsDateList" resultMap="RecordsResult" parameterType="com.romantic.romanticbackend.domain.Records">
-        select MIN(date) date from Records GROUP BY date
+        select MIN(date) date from Records WHERE deleted=0 GROUP BY date
     </select>
 
     <insert id="recordsAdd" parameterType="com.romantic.romanticbackend.domain.Records">
         insert into Records (name,date,time,content,createAt,deleted) values (#{name},#{date},#{time},#{content},#{createAt},#{deleted})
     </insert>
+
+    <update id="recordsDel" parameterType="com.romantic.romanticbackend.domain.Records">
+        update Records set deleted = 1 where id=#{id}
+    </update>
 </mapper>

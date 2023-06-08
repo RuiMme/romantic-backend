@@ -5,16 +5,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Records implements Serializable {
-
+public class Login implements Serializable {
     private int id;
-    private String name;
-    private String content;
-
-    private int deleted;
-
-    private String time;
-    private String date;
+    private int bind_id;
+    private String username;
+    private String nickname;
+    private String mobile;
+    private String wx_ma_openid;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createAt;
@@ -33,36 +30,44 @@ public class Records implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public int getBind_id() {
+        return bind_id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBind_id(int bind_id) {
+        this.bind_id = bind_id;
     }
 
-    public String getContent() {
-        return content;
+    public String getUsername() {
+        return username;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getDate() {
-        return date;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public String getTime() {
-        return time;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getWx_ma_openid() {
+        return wx_ma_openid;
+    }
+
+    public void setWx_ma_openid(String wx_ma_openid) {
+        this.wx_ma_openid = wx_ma_openid;
     }
 
     public Date getCreateAt() {
@@ -79,14 +84,6 @@ public class Records implements Serializable {
 
     public void setUpdateAt(Date updateAt) {
         this.updateAt = updateAt;
-    }
-
-    public int getDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(int deleted) {
-        this.deleted = deleted;
     }
 
     public Date getDeleteAt() {

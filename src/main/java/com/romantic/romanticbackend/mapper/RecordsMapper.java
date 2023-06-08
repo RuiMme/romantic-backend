@@ -14,4 +14,8 @@ public interface RecordsMapper {
     public List<Records> recordsDateList();
 
     public void recordsAdd(Records records);
+
+    public void recordsDel(int id);
+
+
 }
