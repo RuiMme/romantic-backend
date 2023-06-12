@@ -14,4 +14,10 @@ public interface LoginMapper {
     public void loginAdd(Login loginDo);
 
     public List<Login> userInfo(int id);
+
+    public void updateUserInfo(Login loginDo);
+
+    public List<Login> userInfoByUsername(String username);
+
+    public List<Login> userInfoById(int id);
 }

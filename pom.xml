@@ -8,7 +8,7 @@
         <version>3.1.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <groupId>com.romantic</groupId>
     <artifactId>romantic-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>

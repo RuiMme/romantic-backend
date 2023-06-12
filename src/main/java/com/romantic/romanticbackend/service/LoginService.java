@@ -12,4 +12,8 @@ public interface LoginService {
     public void userAdd(Login loginDo);
 
     public List<Login> userInfo(int id);
+
+    public void updateUserInfo(Login loginDo);
+
+    public boolean updateBindUserInfo(Login loginDo);
 }

@@ -1,13 +1,17 @@
 package com.romantic.romanticbackend.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.lang.Nullable;
 
 import java.io.Serializable;
 import java.util.Date;
 
 public class Login implements Serializable {
     private int id;
-    private int bind_id;
+
+    private String bind_id;
+
+    private String bind_username;
     private String username;
     private String nickname;
     private String mobile;
@@ -30,11 +34,11 @@ public class Login implements Serializable {
         this.id = id;
     }
 
-    public int getBind_id() {
+    public String getBind_id() {
         return bind_id;
     }
 
-    public void setBind_id(int bind_id) {
+    public void setBind_id(String bind_id) {
         this.bind_id = bind_id;
     }
 
@@ -92,5 +96,13 @@ public class Login implements Serializable {
 
     public void setDeleteAt(Date deleteAt) {
         this.deleteAt = deleteAt;
+    }
+
+    public String getBind_username() {
+        return bind_username;
+    }
+
+    public void setBind_username(String bind_username) {
+        this.bind_username = bind_username;
     }
 }

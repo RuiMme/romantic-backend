@@ -4,10 +4,7 @@ import com.romantic.romanticbackend.domain.Login;
 import com.romantic.romanticbackend.domain.Records;
 import com.romantic.romanticbackend.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,4 +25,20 @@ public class WechatAppController {
     public List<Login> userInfo(@PathVariable("id") int id) {
         return loginService.userInfo(id);
     }
+
+    @PutMapping()
+    public String updateUserInfo(@RequestBody Login loginDo) {
+        loginService.updateUserInfo(loginDo);
+        return "update success";
+    }
+
+    @PutMapping("/bindUser")
+    public String updateBindUserInfo(@RequestBody Login loginDo){
+
+        if(!loginService.updateBindUserInfo(loginDo)) {
+            return "bind error";
+        }
+        return "bind success";
+    }
+
 }

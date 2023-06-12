@@ -29,4 +29,24 @@
     <select id="userInfo" resultMap="LoginResult" parameterType="com.romantic.romanticbackend.domain.Login">
         SELECT * FROM Users WHERE id = #{id}
     </select>
+
+    <update id="updateUserInfo" parameterType="com.romantic.romanticbackend.domain.Login">
+        UPDATE Users
+        <set>
+            <if test="username!=null">username = #{username},</if>
+            <if test="nickname!=null">nickname = #{nickname},</if>
+            <if test="bind_id!=null">bind_id = #{bind_id},</if>
+            <if test="mobile!=null">mobile = #{mobile},</if>
+            <if test="bind_username!=null">bind_username = #{bind_username},</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="userInfoByUsername" resultMap="LoginResult" parameterType="com.romantic.romanticbackend.domain.Login">
+        SELECT * FROM Users WHERE username = #{username} and bind_id is null and username != #{bind_username}
+    </select>
+
+    <select id="userInfoById" resultMap="LoginResult" parameterType="com.romantic.romanticbackend.domain.Login">
+        SELECT * FROM Users WHERE id = #{id} and bind_id is null
+    </select>
 </mapper>
