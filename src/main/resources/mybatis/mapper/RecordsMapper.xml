@@ -15,15 +15,15 @@
     </select>
 
     <select id="recordsListByDate" resultMap="RecordsResult" parameterType="com.romantic.romanticbackend.domain.Records">
-        SELECT * FROM Records where date = #{date} and deleted = 0 Order by time ASC
+        SELECT * FROM Records where date = #{date} and deleted = 0 and (userId = #{userId} or userId = #{bindUserId}) Order by time ASC
     </select>
 
     <select id="recordsDateList" resultMap="RecordsResult" parameterType="com.romantic.romanticbackend.domain.Records">
-        select MIN(date) date from Records WHERE deleted=0 GROUP BY date
+        select MIN(date) date from Records WHERE deleted=0 and (userId = #{userId} or userId = #{bindUserId}) GROUP BY date
     </select>
 
     <insert id="recordsAdd" parameterType="com.romantic.romanticbackend.domain.Records">
-        insert into Records (name,date,time,content,createAt,deleted) values (#{name},#{date},#{time},#{content},#{createAt},#{deleted})
+        insert into Records (name,date,time,content,createAt,deleted,userId) values (#{name},#{date},#{time},#{content},#{createAt},#{deleted},#{userId})
     </insert>
 
     <update id="recordsDel" parameterType="com.romantic.romanticbackend.domain.Records">

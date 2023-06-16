@@ -16,6 +16,10 @@ public class Records implements Serializable {
     private String time;
     private String date;
 
+    private int userId;
+
+    private int bindUserId;
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createAt;
 
@@ -95,5 +99,21 @@ public class Records implements Serializable {
 
     public void setDeleteAt(Date deleteAt) {
         this.deleteAt = deleteAt;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getBindUserId() {
+        return bindUserId;
+    }
+
+    public void setBindUserId(int bindUserId) {
+        this.bindUserId = bindUserId;
     }
 }

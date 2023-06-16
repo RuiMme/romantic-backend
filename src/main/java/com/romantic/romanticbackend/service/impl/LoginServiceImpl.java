@@ -58,9 +58,11 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public boolean updateBindUserInfo(Login loginDot) {
-        System.out.println(loginDot.getBind_username());
+        System.out.println(loginMapper.userInfoByUsername(loginDot.getBind_username()).isEmpty());
+        System.out.println(loginMapper.userInfoById(loginDot.getId()).isEmpty());
         if(loginMapper.userInfoByUsername(loginDot.getBind_username()).isEmpty()
-                ||loginMapper.userInfoById(loginDot.getId()).isEmpty()){
+                ||loginMapper.userInfoById(loginDot.getId()).isEmpty()
+                ||loginDot.getUsername()==loginDot.getBind_username()){
             return false;
         }
         Login loginDo = new Login();

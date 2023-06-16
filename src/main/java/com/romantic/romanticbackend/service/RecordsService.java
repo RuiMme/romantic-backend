@@ -8,9 +8,9 @@ public interface RecordsService {
 
     public List<Records> recordsList();
 
-    public List<Records> recordsListByDate(String date);
+    public List<Records> recordsListByDate(Records records);
 
-    public List<Records> recordsDateList();
+    public List<Records> recordsDateList(Records records);
 
     public void recordsAdd(Records records);
 

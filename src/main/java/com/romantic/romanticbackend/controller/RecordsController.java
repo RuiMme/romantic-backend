@@ -22,16 +22,16 @@ public class RecordsController {
         return recordsService.recordsList();
     }
 
-    @GetMapping(value = "/{date}")
-    public List<Records> recordsListByDate(@PathVariable("date") String date) {
+    @GetMapping("/dateList")
+    public List<Records> recordsListByDate(Records records) {
 //        System.out.println(records.getDate());
-        return recordsService.recordsListByDate(date);
+        return recordsService.recordsListByDate(records);
     }
 
-    @GetMapping(value = "/date")
-    public List<Records> recordsListByDate() {
+    @GetMapping("/date")
+    public List<Records> recordsByDate(Records records) {
 //        System.out.println(records.getDate());
-        return recordsService.recordsDateList();
+        return recordsService.recordsDateList(records);
     }
 
     @PostMapping
